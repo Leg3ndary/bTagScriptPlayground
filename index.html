@@ -42,6 +42,14 @@
                             <span class="menu-title">Playground</span>
                         </a>
                     </li>
+                    <li class="nav-item menu-items">
+                        <a class="nav-link" href="docs.html">
+                            <span class="menu-icon">
+                              <i class="mdi mdi-file-document-box"></i>
+                            </span>
+                            <span class="menu-title">Docs</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
             <!-- partial -->
@@ -78,7 +86,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h4 class="card-title">Editor</h4>
-                                        <p class="card-description"> Put your tagscript here! Please be patient after pressing process, the first time around, it will take a bit to process. </p>
+                                        <p class="card-description">Put your tagscript here!</p>
                                         <form class="forms-sample">
                                             <div class="form-group">
                                                 <label for="exampleTextarea1">Tagscript</label>
@@ -91,8 +99,8 @@
                             <div class="col-md-6 grid-margin stretch-card">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="card-title">Horizontal Form</h4>
-                                        <p class="card-description"> Horizontal form layout </p>
+                                        <h4 class="card-title">Output</h4>
+                                        <p class="card-description"> Your tagscript output will show here! </p>
                                         <form class="forms-sample">
                                             <div class="form-group">
                                                 <label for="exampleTextarea1">Output</label>
@@ -102,6 +110,122 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-md-6 grid-margin stretch-card">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Actions</h4>
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th> Action </th>
+                                                        <th> Parameter </th>
+                                                        <th> Payload </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td> redirect </td>
+                                                        <td> None </td>
+                                                        <td> 918273981279831 </td>
+                                                        <td>
+                                                            <div class="badge badge-outline-success">Success</div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td> delete </td>
+                                                        <td> None </td>
+                                                        <td> None</td>
+                                                        <td>
+                                                            <div class="badge badge-outline-success">Success</div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td> require </td>
+                                                        <td> You don't have that role! </td>
+                                                        <td> 186980582863929345 </td>
+                                                        <td>
+                                                            <div class="badge badge-outline-danger">Error</div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td> blacklist </td>
+                                                        <td> You've been banned from using that command. </td>
+                                                        <td> 235148962103951360,360061101477724170 </td>
+                                                        <td>
+                                                            <div class="badge badge-outline-danger">Error</div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td> command </td>
+                                                        <td> None </td>
+                                                        <td> ping </td>
+                                                        <td>
+                                                            <div class="badge badge-outline-success">Success</div>
+                                                        </td>
+                                                    </tr>
+                                                    <p class="text-danger">1 Error</p>
+                                                    <p class="text-danger">Both require and blacklist were found</p>
+                                                    <p class="text-warning">0 Warnings</p>
+                                                    <p class="text-warning">None</p>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 grid-margin stretch-card">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Debug</h4>
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th> Variable </th>
+                                                        <th> Value </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td> prefix </td>
+                                                        <td> ? </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td> carl-bot </td>
+                                                        <td> cool </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td> s-item </td>
+                                                        <td> Imagine this was a switch </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td> s-help </td>
+                                                        <td> Help for the switch </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td> s-red </td>
+                                                        <td> Red </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td> s-blue </td>
+                                                        <td> Blue color is nice </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td> s-yellow </td>
+                                                        <td> Another color???? </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td> Coolios </td>
+                                                        <td> voila </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <!-- content-wrapper ends -->
                     <!-- partial:partials/_footer.html -->
