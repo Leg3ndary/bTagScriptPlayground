@@ -6,3 +6,6 @@ package-lock.json
 
 *documentation/
 oldindex.html
+
+
+*.py
