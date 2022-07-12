@@ -5,7 +5,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Playground - _Leg3ndary</title>
+        <link rel="icon" href="assets/images/tagscript-logo.ico">
         <!-- plugins:css -->
+        
         <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
         <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
         <!-- endinject -->
@@ -20,7 +22,6 @@
         <!-- Layout styles -->
         <link rel="stylesheet" href="assets/css/style.css">
         <!-- End layout styles -->
-        <link rel="icon" href="assets/images/tagscript-logo.ico">
     </head>
     <body>
         <div class="container-scroller">
@@ -86,7 +87,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h4 class="card-title">Editor</h4>
-                                        <p class="card-description">Put your tagscript here!</p>
+                                        <p class="card-description">Put your tagscript here! Please be patient, this may take a while to process the first time around.</p>
                                         <form class="forms-sample">
                                             <div class="form-group">
                                                 <label for="exampleTextarea1">Tagscript</label>
@@ -119,56 +120,10 @@
                                                 <thead>
                                                     <tr>
                                                         <th> Action </th>
-                                                        <th> Parameter </th>
-                                                        <th> Payload </th>
+                                                        <th> Values </th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td> redirect </td>
-                                                        <td> None </td>
-                                                        <td> 918273981279831 </td>
-                                                        <td>
-                                                            <div class="badge badge-outline-success">Success</div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> delete </td>
-                                                        <td> None </td>
-                                                        <td> None</td>
-                                                        <td>
-                                                            <div class="badge badge-outline-success">Success</div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> require </td>
-                                                        <td> You don't have that role! </td>
-                                                        <td> 186980582863929345 </td>
-                                                        <td>
-                                                            <div class="badge badge-outline-danger">Error</div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> blacklist </td>
-                                                        <td> You've been banned from using that command. </td>
-                                                        <td> 235148962103951360,360061101477724170 </td>
-                                                        <td>
-                                                            <div class="badge badge-outline-danger">Error</div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> command </td>
-                                                        <td> None </td>
-                                                        <td> ping </td>
-                                                        <td>
-                                                            <div class="badge badge-outline-success">Success</div>
-                                                        </td>
-                                                    </tr>
-                                                    <p class="text-danger">1 Error</p>
-                                                    <p class="text-danger">Both require and blacklist were found</p>
-                                                    <p class="text-warning">0 Warnings</p>
-                                                    <p class="text-warning">None</p>
-                                                </tbody>
+                                                <tbody id="actionBody"></tbody>
                                             </table>
                                         </div>
                                     </div>
@@ -186,40 +141,7 @@
                                                         <th> Value </th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td> prefix </td>
-                                                        <td> ? </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> carl-bot </td>
-                                                        <td> cool </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> s-item </td>
-                                                        <td> Imagine this was a switch </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> s-help </td>
-                                                        <td> Help for the switch </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> s-red </td>
-                                                        <td> Red </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> s-blue </td>
-                                                        <td> Blue color is nice </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> s-yellow </td>
-                                                        <td> Another color???? </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> Coolios </td>
-                                                        <td> voila </td>
-                                                    </tr>
-                                                </tbody>
+                                                <tbody id="debugTable"></tbody>
                                             </table>
                                         </div>
                                     </div>

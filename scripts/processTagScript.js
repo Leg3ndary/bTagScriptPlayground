@@ -22,6 +22,45 @@ function escapeHtml(unsafe) {
         .replace(/'/g, "&#039;");
 }
 
+function loadActionTable(actions) {
+    const table = document.getElementById("actionBody");
+
+    while(table.hasChildNodes()){
+        table.removeChild(table.firstChild);
+    }
+
+    for (const [action, value] of Object.entries(actions)) {
+        let row = table.insertRow();
+
+        let actionRow = row.insertCell(0);
+        actionRow.innerHTML = escapeHtml(action);
+        
+        let valuesRow = row.insertCell(1);
+        valuesRow.innerHTML = escapeHtml(JSON.stringify(value));
+
+        let badge = row.insertCell(2);
+        badge.innerHTML = `<div class="badge badge-outline-success">Success</div>`;
+    };
+}
+
+function loadDebugTable(debug) {
+    const table = document.getElementById("debugTable");
+
+    while(table.hasChildNodes()){
+        table.removeChild(table.firstChild);
+    }
+
+    for (const [name, value] of Object.entries(debug)) {
+        let row = table.insertRow();
+
+        let nameRow = row.insertCell(0);
+        nameRow.innerHTML = escapeHtml(name);
+        
+        let valuesRow = row.insertCell(1);
+        valuesRow.innerHTML = escapeHtml(value);
+    };
+}
+
 button.addEventListener('click', event => {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -35,11 +74,14 @@ button.addEventListener('click', event => {
     })
     .then(res => res.json());
 
-    console.log(response);
-
     response.then(function(resp) {
-        console.log(resp);
+        // console.log(resp);
         response = new Response(resp);
         document.getElementById("output").value = escapeHtml(response.body);
+
+        loadActionTable(response.actions);
+        loadDebugTable(response.extras.debug);
     });
+
+    
 });
