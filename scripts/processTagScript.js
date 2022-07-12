@@ -27,6 +27,7 @@ button.addEventListener('click', event => {
     headers.append('Content-Type', 'application/json');
 
     let tagscript = document.getElementById("tagscript").value;
+    tagscript = tagscript.replace("\\", "Ꜳ");
     let request = encodeURIComponent(tagscript);
 
     let response = fetch(API_URL + request, {
@@ -39,6 +40,6 @@ button.addEventListener('click', event => {
     response.then(function(resp) {
         console.log(resp);
         response = new Response(resp);
-        document.getElementById("output").value = response.body;
+        document.getElementById("output").value = escapeHtml(response.body);
     });
 });
