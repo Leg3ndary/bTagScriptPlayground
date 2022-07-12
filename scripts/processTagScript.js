@@ -2,6 +2,9 @@
 
 const API_URL = "https://mighty-sea-55702.herokuapp.com/https://btp.leg3ndary.repl.co/process/";
 
+// To start the api in case it's not running
+fetch(API_URL);
+
 class Response {
     constructor(data) {
         this.body = data.body;
@@ -62,6 +65,9 @@ function loadDebugTable(debug) {
 }
 
 button.addEventListener('click', event => {
+    button.disabled = true;
+    button.innerText = "Processing...";
+
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
@@ -83,5 +89,6 @@ button.addEventListener('click', event => {
         loadDebugTable(response.extras.debug);
     });
 
-    
+    button.disabled = false;
+    button.innerText = "Process";
 });
