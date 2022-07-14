@@ -79,9 +79,3 @@ const editor = CodeMirror.fromTextArea(document.getElementById('tagscript'), {
 	theme: 'tse',
 	lineWrapping: true,
 });
-
-const second_editor = CodeMirror.fromTextArea(document.getElementById('output'), {
-	mode: 'tse',
-	theme: 'tse',
-	lineWrapping: true,
-});
