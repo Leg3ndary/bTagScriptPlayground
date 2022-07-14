@@ -1,9 +1,11 @@
 // Out of respect, please don't go spamming my API :(
 
-const API_URL = "https://mighty-sea-55702.herokuapp.com/https://btp.leg3ndary.repl.co/process/";
+
+const API_URL = "https://btp.leg3ndary.repl.co/process/";
+
 
 // To start the api in case it's not running
-fetch(API_URL);
+fetch(API_URL + "ping");
 
 class Response {
     constructor(data) {
@@ -14,6 +16,24 @@ class Response {
 }
 
 const button = document.getElementById("processBTN");
+
+function cleanTagScript(tagscript) {
+    return tagscript
+        .replace(/\\/g, "Ꜳ")
+        .replace(/\//g, "₩")
+        .replace(/</g, "ꜳ")
+        .replace(/>/g, "ꜵ")
+        .replace(/\./g, "Ꜷ");
+}
+
+function decodeTagScript(tagscript) {
+    return tagscript
+        .replace(/Ꜳ/g, "\\")
+        .replace(/ꜳ/g, "<")
+        .replace(/₩/g, "/")
+        .replace(/ꜵ/g, ">")
+        .replace(/Ꜷ/g, ".");
+}
 
 function escapeHtml(unsafe) {
     // ty asport
@@ -66,29 +86,30 @@ function loadDebugTable(debug) {
 
 button.addEventListener('click', event => {
     button.disabled = true;
-    button.innerText = "Processing...";
 
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
     let tagscript = document.getElementById("tagscript").value;
-    tagscript = tagscript.replace("\\", "Ꜳ");
+
+    tagscript = cleanTagScript(tagscript);
+
     let request = encodeURIComponent(tagscript);
 
     let response = fetch(API_URL + request, {
-        headers: headers
+        headers: headers,
+        origin: "https://leg3ndary.github.io:443"
     })
     .then(res => res.json());
 
     response.then(function(resp) {
         // console.log(resp);
         response = new Response(resp);
-        document.getElementById("output").value = escapeHtml(response.body);
+        document.getElementById("output").value = decodeTagScript(response.body);
 
         loadActionTable(response.actions);
         loadDebugTable(response.extras.debug);
     });
 
     button.disabled = false;
-    button.innerText = "Process";
 });
