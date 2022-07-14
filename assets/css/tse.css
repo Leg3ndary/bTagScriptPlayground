@@ -50,3 +50,11 @@
 .cm-s-tse .CodeMirror-cursor {
     border-color: white;
 }
+
+.CodeMirror,
+.CodeMirror-scroll {
+    min-height: calc(15 * 1.5em);
+    height: 100%;
+    resize: vertical;
+    overflow-y: hidden;
+}
