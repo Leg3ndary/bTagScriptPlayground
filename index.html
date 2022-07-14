@@ -99,13 +99,23 @@
                                         <p class="card-description">Put your tagscript here! Please be patient, this may take a while to process the first time around.</p>
                                         <form class="forms-sample">
                                             <div class="form-group">
-                                                <label for="exampleTextarea1">Tagscript</label>
-                                                <textarea class="form-control" id="tagscript" rows="25" draggable=True></textarea>
+                                                <textarea class="form-control" id="tagscript" rows="15" draggable=True placeholder="Put some tagscript here!"></textarea>
                                             </div>
-                                            <button type="button" class="btn btn-success mr-2 btn-icon-bug-play" id="processBTN">
-                                                <i class="mdi mdi-play-circle btn-icon-prepend"></i>
-                                                Process
-                                            </button>
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" placeholder="Tag URL or ID" aria-label="Import Carl Tag" aria-describedby="basic-addon2" id="carlImportURL">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-sm btn-primary" type="button" id="carlImport">
+                                                            <i class="mdi mdi-folder-upload btn-icon-prepend"></i>
+                                                                Import
+                                                            </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <button type="button" class="btn-block btn-md btn-success mr-2" id="processBTN">
+                                            <i class="mdi mdi-play-circle btn-icon-prepend"></i>
+                                            Process
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -116,8 +126,7 @@
                                         <p class="card-description"> Your tagscript output will show here! </p>
                                         <form class="forms-sample">
                                             <div class="form-group">
-                                                <label for="exampleTextarea1">Output</label>
-                                                <textarea class="form-control" id="output" rows="25"></textarea>
+                                                <textarea class="form-control" id="output" rows="15" placeholder="Your output will show up here automatically"></textarea>
                                             </div>
                                         </form>
                                     </div>
@@ -196,6 +205,7 @@
         <!-- Custom js for this page -->
         <script src="assets/js/dashboard.js"></script>
         <script src="scripts/processTagScript.js"></script>
+        <script src="scripts/importCarlScript.js"></script>
         <!-- End custom js for this page -->
     </body>
 </html>
