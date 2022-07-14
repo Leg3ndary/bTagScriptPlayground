@@ -1,5 +1,3 @@
-// Out of respect, please don't go spamming my API :(
-
 function isInt(str) {
     if (typeof str !== 'string') {
         return false;
@@ -36,7 +34,6 @@ function parseID(str) {
 
 carlImportBtn.addEventListener("click", event => {
 
-    let tagscriptPlace = document.getElementById("tagscript");
     let importURL = document.getElementById("carlImportURL").value;
 
     let tagID = parseID(importURL);
@@ -45,7 +42,7 @@ carlImportBtn.addEventListener("click", event => {
 
     response.then(function(resp) {
         // console.log(resp);
-        tagscriptPlace.value = resp.content;
+        editor.setValue(resp.content);
     });
 
     tagscript.innerText = "";

@@ -154,7 +154,7 @@ button.addEventListener('click', event => {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    let tagscript = document.getElementById("tagscript").value;
+    let tagscript = editor.getValue();
 
     tagscript = cleanTagScript(tagscript);
 
