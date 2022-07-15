@@ -1,4 +1,3 @@
-/* globals editor */
 // Out of respect, please don't go spamming my API :(
 
 const API_URL = 'https://btp.leg3ndary.repl.co/process/';
@@ -6,14 +5,6 @@ const output = document.getElementById('output');
 
 // To start the api in case it's not running
 fetch(API_URL + 'ping');
-
-class Response {
-	constructor(data) {
-		this.body = data.body;
-		this.actions = data.actions;
-		this.extras = data.extras;
-	}
-}
 
 const button = document.getElementById('processBTN');
 
@@ -50,6 +41,9 @@ function loadActionTable(actions) {
 	const errorsText = document.getElementById('errors');
 	const warningsText = document.getElementById('warnings');
 
+	console.log(actions);
+
+
 	while (table.hasChildNodes()) {
 		table.removeChild(table.firstChild);
 	}
@@ -69,47 +63,51 @@ function loadActionTable(actions) {
 		let valueContent = 'Error';
 		let badgeContent = '<div class="badge badge-danger">Error</div>';
 
-		if ( action == 'blacklist' ) {
-			if ( actions.hasOwnProperty('requires') ) {
+		if (action === 'blacklist') {
+			if (actions.requires) {
 				errors.push('You cannot have both a blacklist and a require block.');
 				actionContent = action;
-				valueContent = `Blacklisting the following IDS: ${value.items.join(', ')}, replying with "${value.response}" when the user/role/channel is blacklisted.`;
+				valueContent = `Blacklisting the following IDS: ${value.items.join(', ')}, 
+					replying with "${value.response}" when the user/role/channel is blacklisted.`;
 				badgeContent = '<div class="badge badge-danger">Error</div>';
 			} else {
-				valueContent = `Blacklisting the following IDS: ${value.items.join(', ')}, replying with "${value.response}" when the user/role/channel is blacklisted.`;
+				valueContent = `Blacklisting the following IDS: ${value.items.join(', ')}, 
+					replying with "${value.response}" when the user/role/channel is blacklisted.`;
 				badgeContent = '<div class="badge badge-success">Success</div>';
 			}
-		} else if ( action == 'commands' ) {
+		} else if (action === 'commands') {
 			actionContent = 'command';
 			valueContent = `The following commands are used with their associated values: ${value.join(', ')}`;
 			badgeContent = '<div class="badge badge-success">Success</div>';
-		} else if ( action == 'delete' ) {
+		} else if (action === 'delete') {
 			actionContent = 'delete';
 			valueContent = 'Deleting the message';
 			badgeContent = '<div class="badge badge-success">Success</div>';
-		} else if ( action == 'embed' ) {
+		} else if (action === 'embed') {
 			actionContent = 'embed';
 			valueContent = `Embedding the following embed json: ${JSON.stringify(value)}`;
 			badgeContent = '<div class="badge badge-success">Success</div>';
-		} else if ( action == 'overrides' ) {
+		} else if (action === 'overrides') {
 			actionContent = 'override';
 			valueContent = 'Overriding command permissions.';
 			badgeContent = '<div class="badge badge-success">Success</div>';
-		} else if ( action == 'reactions' ) {
+		} else if (action === 'reactions') {
 			actionContent = 'reaction';
 			valueContent = `Adding the following reactions: ${value.join(', ')}`;
 			badgeContent = '<div class="badge badge-success">Success</div>';
-		} else if ( action == 'requires' ) {
-			if ( actions.hasOwnProperty('requires') ) {
+		} else if (action === 'requires') {
+			if (actions.blacklist) {
 				actionContent = 'require';
-				valueContent = `Requiring the following IDS: ${value.items.join(', ')}, replying with "${value.response}" when the requirements aren't met.`;
+				valueContent = `Requiring the following IDS: ${value.items.join(', ')}, 
+					replying with "${value.response}" when the requirements aren't met.`;
 				badgeContent = '<div class="badge badge-danger">Error</div>';
 			} else {
 				actionContent = 'require';
-				valueContent = `Requiring the following IDS: ${value.items.join(', ')}, replying with "${value.response}" when the requirements aren't met.`;
+				valueContent = `Requiring the following IDS: ${value.items.join(', ')}, 
+					replying with "${value.response}" when the requirements aren't met.`;
 				badgeContent = '<div class="badge badge-success">Success</div>';
 			}
-		} else if ( action == 'target' ) {
+		} else if (action === 'target') {
 			actionContent = 'redirect';
 			valueContent = `Redirecting the message to the following channel: ${value.channel}`;
 			badgeContent = '<div class="badge badge-success">Success</div>';
@@ -122,10 +120,10 @@ function loadActionTable(actions) {
 		badge.innerHTML = badgeContent;
 	}
 
-	if ( errors.length > 0 ) {
+	if (errors.length > 0) {
 		errorsText.innerText = 'Errors: ' + errors.join(', ');
 	}
-	if ( warnings.length > 0 ) {
+	if (warnings.length > 0) {
 		warningsText.innerText = 'Warnings: ' + warnings.join(', ');
 	}
 }

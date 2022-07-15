@@ -20,11 +20,13 @@ const carlImportURL = document.getElementById('carlImportURL');
 const carlImportBtn = document.getElementById('carlImport');
 
 function parseID(str) {
-	if ( isInt(str) == true ) {
+	let tagID;
+
+	if (isInt(str) === true) {
 		tagID = str;
 	} else {
 		tagID = str.split('/').pop();
-		if ( isInt(tagID) == false ) {
+		if (isInt(tagID) === false) {
 			console.log('Add something here when tag isn\'t found idiot');
 			// Custom tag I made lul
 			tagID = 1479390;
@@ -45,8 +47,6 @@ async function importTag() {
     
 	const resp = await fetch(CARL_API_URL + tagID).then(response => response.json());
 	editor.setValue(resp.content);
-
-	tagscript.innerText = '';
 
 	carlImportBtn.removeAttribute('disabled');
 	isLoading = false;
