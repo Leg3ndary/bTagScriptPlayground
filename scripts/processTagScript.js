@@ -151,6 +151,9 @@ function loadDebugTable(debug) {
 let isProcessing = false;
 async function process() {
 	if (isProcessing) return;
+	
+	let tagscript = editor.getValue();
+
 	if (!tagscript) {
 		output.value = '';
 
@@ -166,7 +169,6 @@ async function process() {
 	const headers = new Headers();
 	headers.append('Content-Type', 'application/json');
 
-	let tagscript = editor.getValue();
 
 	tagscript = cleanTagScript(tagscript);
 
