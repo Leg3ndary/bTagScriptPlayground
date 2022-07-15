@@ -1,3 +1,8 @@
+#output {
+	background-color: #2A3038;
+	border: none;
+}
+
 .icon-btn .mdi {
 	vertical-align: middle;
 	margin-right: 0px;
