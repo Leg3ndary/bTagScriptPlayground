@@ -1,3 +1,6 @@
+/* eslint-disable max-len */
+/* globals CodeMirror */
+
 CodeMirror.defineSimpleMode('tse', {
 	start: [
 		{
@@ -74,7 +77,7 @@ CodeMirror.defineSimpleMode('tse', {
 	],
 });
 
-const editor = CodeMirror.fromTextArea(document.getElementById('tagscript'), {
+CodeMirror.fromTextArea(document.getElementById('tagscript'), {
 	mode: 'tse',
 	theme: 'tse',
 	lineWrapping: true,
