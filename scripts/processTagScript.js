@@ -164,9 +164,11 @@ async function process() {
         response = new ApiResponse({
             output: "",
             actions: {},
-            debug: {}
+            extras: {
+                debug: {}
+            }
         });
-        document.getElementById("output").value = decodeTagScript(response.body);
+        document.getElementById("output").value = " ";
 
         loadActionTable(response.actions);
         loadDebugTable(response.extras.debug);
