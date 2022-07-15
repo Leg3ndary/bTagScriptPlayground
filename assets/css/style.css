@@ -21135,3 +21135,8 @@ div.tagsinput {
     flex-grow: 1; }
 
 /*# sourceMappingURL=maps/style.css.map */
+
+
+.btn .mdi, .btn-block .mdi {
+    vertical-align: middle;
+}
