@@ -147,8 +147,12 @@ function loadDebugTable(debug) {
     };
 }
 
-button.addEventListener('click', event => {
-    button.disabled = true;
+let isProcessing = false;
+async function process() {
+    if ( isProcessing ) return;
+
+    button.setAttribute("disabled", true);
+    isProcessing = true;
 
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -174,5 +178,13 @@ button.addEventListener('click', event => {
         loadDebugTable(response.extras.debug);
     });
 
-    button.disabled = false;
+    button.removeAttribute("disabled");
+    isProcessing = false;
+};
+
+button.addEventListener('click', process);
+
+editor.addKeyMap({
+    'Cmd-Enter': process,
+    'Ctrl-Enter': process
 });

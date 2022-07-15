@@ -77,6 +77,7 @@ CodeMirror.defineSimpleMode('tse', {
 	],
 });
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const editor = CodeMirror.fromTextArea(document.getElementById('tagscript'), {
 	mode: 'tse',
 	theme: 'tse',
