@@ -6,7 +6,7 @@ const API_URL = "https://btp.leg3ndary.repl.co/process/";
 // To start the api in case it's not running
 fetch(API_URL + "ping");
 
-class Response {
+class ApiResponse {
     constructor(data) {
         this.body = data.body;
         this.actions = data.actions;
@@ -35,7 +35,6 @@ function decodeTagScript(tagscript) {
 }
 
 function escapeHtml(unsafe) {
-    // ty asport
     return unsafe
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
@@ -171,7 +170,7 @@ async function process() {
 
     response.then(function(resp) {
         // console.log(resp);
-        response = new Response(resp);
+        response = new ApiResponse(resp);
         document.getElementById("output").value = decodeTagScript(response.body);
 
         loadActionTable(response.actions);
