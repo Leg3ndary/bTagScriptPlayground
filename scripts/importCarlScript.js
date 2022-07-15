@@ -16,6 +16,7 @@ function isInt(str) {
 const CARL_API_URL = "https://mighty-sea-55702.herokuapp.com/https://carl.gg/api/v1/tags/";
 
 
+const carlImportURL = document.getElementById("carlImportURL");
 const carlImportBtn = document.getElementById("carlImport");
 
 function parseID(str) {
@@ -32,18 +33,19 @@ function parseID(str) {
     return tagID;
 }
 
-carlImportBtn.addEventListener("click", event => {
+async function importTag() {
 
-    let importURL = document.getElementById("carlImportURL").value;
+    let importURL = carlImportURL.value;
 
     let tagID = parseID(importURL);
     
-    let response = fetch(CARL_API_URL + tagID).then(response => response.json());
-
-    response.then(function(resp) {
-        // console.log(resp);
-        editor.setValue(resp.content);
-    });
+    let resp = await fetch(CARL_API_URL + tagID).then(response => response.json());
+    editor.setValue(resp.content);
 
     tagscript.innerText = "";
+}
+
+carlImportBtn.addEventListener('click', importTag);
+carlImportURL.addEventListener('keydown', e => {
+    if (e.key === "Enter") importTag();
 });
