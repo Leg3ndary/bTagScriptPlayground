@@ -2,225 +2,246 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Playground - _Leg3ndary</title>
-        <link rel="icon" href="assets/images/tagscript-logo.ico">
-        <!-- plugins:css -->
-        
-        <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
-        <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
-        <!-- endinject -->
-        <!-- Plugin css for this page -->
-        <link rel="stylesheet" href="assets/vendors/jvectormap/jquery-jvectormap.css">
-        <link rel="stylesheet" href="assets/vendors/flag-icon-css/css/flag-icon.min.css">
-        <link rel="stylesheet" href="assets/vendors/owl-carousel-2/owl.carousel.min.css">
-        <link rel="stylesheet" href="assets/vendors/owl-carousel-2/owl.theme.default.min.css">"
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.2/codemirror.min.css"
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Playground - _Leg3ndary</title>
+    <link rel="icon" href="assets/images/tagscript-logo.ico">
+    <!-- plugins:css -->
+
+    <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="assets/vendors/jvectormap/jquery-jvectormap.css">
+    <link rel="stylesheet" href="assets/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="assets/vendors/owl-carousel-2/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/vendors/owl-carousel-2/owl.theme.default.min.css">"
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.2/codemirror.min.css"
         integrity="sha512-MWdvo/Qqcf4pY1ecQUB1uBn0qLp19U/qJ1Rpp2BDZeuBA7YsFEwkvqR/+aG4BroPiAYDunKJ6X8R/Pmdt3p7oA=="
         crossorigin="anonymous" />
-        <!-- End plugin css for this page -->
-        <!-- inject:css -->
-        <!-- endinject -->
-        <!-- Layout styles -->
-        <link rel="stylesheet" href="assets/css/style.css">
-        <link rel="stylesheet" href="assets/css/tse.css">
-        <!-- End layout styles -->
-        <meta property="og:title" content="Tagscript Playground" />
-        <meta property="og:type" content="Site Content" />
-        <meta property="og:url" content="https://leg3ndary.github.io/bTagScriptPlayground/" />
-        <meta property="og:site_name" content="By _Leg3ndary#0001">
-        <meta property="og:image" content="https://i.imgur.com/AcQAnss.png" />
-        <meta property="og:description" content="A TagScript playground for you to test tags!" />
-        <meta name="theme-color" content="#2980B9">
-    </head>
-    <body>
-        <div class="container-scroller">
-            <!-- partial:partials/_sidebar.html -->
-            <nav class="sidebar sidebar-offcanvas" id="sidebar">
-                <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-                    <a class="sidebar-brand brand-logo" href="index.html"><img src="assets/images/TagScriptLogo.svg" alt="logo" /></a>
-                    <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="assets/images/TagScriptLogo.svg" alt="logo" /></a>
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/misc.css">
+    <link rel="stylesheet" href="assets/css/tse.css">
+    <!-- End layout styles -->
+    <meta property="og:title" content="Tagscript Playground" />
+    <meta property="og:type" content="Site Content" />
+    <meta property="og:url" content="https://leg3ndary.github.io/bTagScriptPlayground/" />
+    <meta property="og:site_name" content="By _Leg3ndary#0001">
+    <meta property="og:image" content="https://i.imgur.com/AcQAnss.png" />
+    <meta property="og:description" content="A TagScript playground for you to test tags!" />
+    <meta name="theme-color" content="#2980B9">
+</head>
+
+<body>
+    <div class="container-scroller">
+        <!-- partial:partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+                <a class="sidebar-brand brand-logo" href="index.html"><img src="assets/images/TagScriptLogo.svg"
+                        alt="logo" /></a>
+                <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="assets/images/TagScriptLogo.svg"
+                        alt="logo" /></a>
+            </div>
+            <ul class="nav">
+                <li class="nav-item nav-category">
+                    <span class="nav-link">Navigation</span>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="index.html">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-settings"></i>
+                        </span>
+                        <span class="menu-title">Playground</span>
+                    </a>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="docs.html">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-file-document-box"></i>
+                        </span>
+                        <span class="menu-title">Docs</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:partials/_navbar.html -->
+            <nav class="navbar p-0 fixed-top d-flex flex-row">
+                <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
+                    <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/TagScriptLogo.svg"
+                            alt="logo" /></a>
                 </div>
-                <ul class="nav">
-                    <li class="nav-item nav-category">
-                        <span class="nav-link">Navigation</span>
-                    </li>
-                    <li class="nav-item menu-items">
-                        <a class="nav-link" href="index.html">
-                            <span class="menu-icon">
-                                <i class="mdi mdi-settings"></i>
-                            </span>
-                            <span class="menu-title">Playground</span>
-                        </a>
-                    </li>
-                    <li class="nav-item menu-items">
-                        <a class="nav-link" href="docs.html">
-                            <span class="menu-icon">
-                              <i class="mdi mdi-file-document-box"></i>
-                            </span>
-                            <span class="menu-title">Docs</span>
-                        </a>
-                    </li>
-                </ul>
+                <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+                    <button class="navbar-toggler navbar-toggler align-self-center" type="button"
+                        data-toggle="minimize">
+                        <span class="mdi mdi-menu"></span>
+                    </button>
+                    <ul class="navbar-nav w-100">
+                        <li class="nav-item w-100">
+                            <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
+                                <input type="text" class="form-control" placeholder="This does nothing as of now">
+                            </form>
+                        </li>
+                    </ul>
+                    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+                        data-toggle="offcanvas">
+                        <span class="mdi mdi-format-line-spacing"></span>
+                    </button>
+                </div>
             </nav>
             <!-- partial -->
-            <div class="container-fluid page-body-wrapper">
-                <!-- partial:partials/_navbar.html -->
-                <nav class="navbar p-0 fixed-top d-flex flex-row">
-                    <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-                        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/TagScriptLogo.svg" alt="logo" /></a>
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="page-header">
+                        <h3 class="page-title"> Playground </h3>
                     </div>
-                    <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
-                        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-                            <span class="mdi mdi-menu"></span>
-                        </button>
-                        <ul class="navbar-nav w-100">
-                            <li class="nav-item w-100">
-                                <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-                                    <input type="text" class="form-control" placeholder="This does nothing as of now">
-                                </form>
-                            </li>
-                        </ul>
-                        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-                            <span class="mdi mdi-format-line-spacing"></span>
-                        </button>
-                    </div>
-                </nav>
-                <!-- partial -->
-                <div class="main-panel">
-                    <div class="content-wrapper">
-                        <div class="page-header">
-                            <h3 class="page-title"> Playground </h3>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 grid-margin stretch-card">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Editor</h4>
-                                        <p class="card-description">Put your tagscript here! Please be patient, this may take a while to process the first time around.</p>
-                                        <form class="forms-sample">
-                                            <div class="form-group">
-                                                <textarea class="form-control" id="tagscript" rows="15" placeholder="Put some tagscript here!"></textarea>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="input-group">
-                                                    <input type="text" class="form-control" placeholder="Tag URL or ID" aria-label="Import Carl Tag" aria-describedby="basic-addon2" id="carlImportURL">
-                                                    <div class="input-group-append">
-                                                        <button class="btn btn-sm btn-primary" type="button" id="carlImport">
-                                                            <i class="mdi mdi-folder-upload btn-icon-prepend"></i>
-                                                                Import
-                                                            </button>
-                                                    </div>
+                    <div class="row">
+                        <div class="col-md-6 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Editor</h4>
+                                    <p class="card-description">Put your tagscript here! Please be patient, this may
+                                        take a while to process the first time around.</p>
+                                    <form class="forms-sample">
+                                        <div class="form-group">
+                                            <textarea class="form-control" id="tagscript" rows="15"
+                                                placeholder="Put some tagscript here!"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" placeholder="Tag URL or ID"
+                                                    aria-label="Import Carl Tag" aria-describedby="basic-addon2"
+                                                    id="carlImportURL">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-sm btn-primary icon-btn" type="button"
+                                                        id="carlImport">
+                                                        <i class="mdi mdi-folder-upload btn-icon-prepend"></i>
+                                                        Import
+                                                    </button>
                                                 </div>
                                             </div>
-                                        <button type="button" class="btn-block btn-md btn-success mr-2" id="processBTN">
+                                        </div>
+                                        <button type="button" class="btn-block btn-md btn-success mr-2 icon-btn"
+                                            id="processBTN">
                                             <i class="mdi mdi-play-circle btn-icon-prepend"></i>
                                             Process
                                         </button>
-                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 grid-margin stretch-card">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Output</h4>
-                                        <p class="card-description"> Your tagscript output will show here! </p>
-                                        <form class="forms-sample">
-                                            <div class="form-group">
-                                                <textarea class="form-control" id="output" rows="15" placeholder="Your output will show up here automatically"></textarea>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 grid-margin stretch-card">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Actions</h4>
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th> Action </th>
-                                                        <th> Values </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody id="actionBody"></tbody>
-                                            </table>
+                        </div>
+                        <div class="col-md-6 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Output</h4>
+                                    <p class="card-description"> Your tagscript output will show here! </p>
+                                    <form class="forms-sample">
+                                        <div class="form-group">
+                                            <textarea class="form-control" id="output" rows="15"
+                                                placeholder="Your output will show up here automatically"></textarea>
                                         </div>
-                                        <br>
-                                        <p class="text-danger" id="errors">Errors: None</p>
-                                        <p class="text-warning" id="warnings">Warnings: None</p>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
-                            <div class="col-md-6 grid-margin stretch-card">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Debug</h4>
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th> Variable </th>
-                                                        <th> Value </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody id="debugTable"></tbody>
-                                            </table>
-                                        </div>
+                        </div>
+                        <div class="col-md-6 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Actions</h4>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th> Action </th>
+                                                    <th> Values </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="actionBody"></tbody>
+                                        </table>
+                                    </div>
+                                    <br>
+                                    <p class="text-danger" id="errors">Errors: None</p>
+                                    <p class="text-warning" id="warnings">Warnings: None</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Debug</h4>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th> Variable </th>
+                                                    <th> Value </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="debugTable"></tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- content-wrapper ends -->
-                    <!-- partial:partials/_footer.html -->
-                    <footer class="footer">
-                        <p>Syntax Highlighting brought to you by <a href="https://github.com/asty8926/tagscript-syntax-highlighter/blob/main/static/tse.css" target="_blank">Asty8926</a></p>
-                        <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © _Leg3ndary 2022</span>
-                            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Not affiliated with <a href="https://carl.gg" target="_blank">Carl-bot</a> or <a href="https://botlabs.gg" target="_blank">Botlabs</a></span>
-                        </div>
-                    </footer>
-                    <!-- partial -->
                 </div>
-                <!-- main-panel ends -->
+                <!-- content-wrapper ends -->
+                <!-- partial:partials/_footer.html -->
+                <footer class="footer">
+                    <p>Syntax Highlighting brought to you by <a
+                            href="https://github.com/asty8926/tagscript-syntax-highlighter/blob/main/static/tse.css"
+                            target="_blank">Asty8926</a></p>
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                        <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright ©
+                            _Leg3ndary 2022</span>
+                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Not affiliated with <a
+                                href="https://carl.gg" target="_blank">Carl-bot</a> or <a href="https://botlabs.gg"
+                                target="_blank">Botlabs</a></span>
+                    </div>
+                </footer>
+                <!-- partial -->
             </div>
-            <!-- page-body-wrapper ends -->
+            <!-- main-panel ends -->
         </div>
-        <!-- container-scroller -->
-        <!-- plugins:js -->
-        <script src="assets/vendors/js/vendor.bundle.base.js"></script>
-        <!-- endinject -->
-        <!-- Plugin js for this page -->
-        <script src="assets/vendors/chart.js/Chart.min.js"></script>
-        <script src="assets/vendors/progressbar.js/progressbar.min.js"></script>
-        <script src="assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
-        <script src="assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-        <script src="assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
-        <!-- End plugin js for this page -->
-        <!-- inject:js -->
-        <script src="assets/js/off-canvas.js"></script>
-        <script src="assets/js/hoverable-collapse.js"></script>
-        <script src="assets/js/misc.js"></script>
-        <script src="assets/js/settings.js"></script>
-        <script src="assets/js/todolist.js"></script>
-        <!-- endinject -->
-        <!-- Custom js for this page -->
-        <script src="assets/js/dashboard.js"></script>
-        <script src="scripts/processTagScript.js"></script>
-        <script src="scripts/importCarlScript.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/codemirror.min.js"
-		integrity="sha512-n7rucz/qOiYAkYK1CVKuqygMAnohil8Rg6kKAv0IsF2xnHUhnVyD5K9GO25OUvc+WEVZVu+NIYLblIUpkBMNvQ=="
-		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/addon/mode/simple.min.js"
-		integrity="sha512-CGM6DWPHs250F/m90YZ9NEiEUhd9a4+u8wAzeKC6uHzZbYyt9/e2dLC5BGGB6Y0HtEdZQdSDYjDsoTyNGdMrMA=="
-		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="scripts/syntaxHighlighting.js"></script>
-        <!-- End custom js for this page -->
-    </body>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="assets/vendors/chart.js/Chart.min.js"></script>
+    <script src="assets/vendors/progressbar.js/progressbar.min.js"></script>
+    <script src="assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+    <script src="assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="assets/js/off-canvas.js"></script>
+    <script src="assets/js/hoverable-collapse.js"></script>
+    <script src="assets/js/misc.js"></script>
+    <script src="assets/js/settings.js"></script>
+    <script src="assets/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="assets/js/dashboard.js"></script>
+    <script src="scripts/processTagScript.js"></script>
+    <script src="scripts/importCarlScript.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/codemirror.min.js"
+        integrity="sha512-n7rucz/qOiYAkYK1CVKuqygMAnohil8Rg6kKAv0IsF2xnHUhnVyD5K9GO25OUvc+WEVZVu+NIYLblIUpkBMNvQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/addon/mode/simple.min.js"
+        integrity="sha512-CGM6DWPHs250F/m90YZ9NEiEUhd9a4+u8wAzeKC6uHzZbYyt9/e2dLC5BGGB6Y0HtEdZQdSDYjDsoTyNGdMrMA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="scripts/syntaxHighlighting.js"></script>
+    <!-- End custom js for this page -->
+</body>
+
 </html>
