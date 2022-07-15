@@ -120,18 +120,26 @@
                                                 aria-label="Import Carl Tag" aria-describedby="basic-addon2"
                                                 id="carlImportURL">
                                             <div class="input-group-append">
-                                                <button class="btn btn-sm btn-primary icon-btn" type="button"
-                                                    id="carlImport">
-                                                    <i class="mdi mdi-folder-upload btn-icon-prepend"></i>
-                                                    Import
+                                                <button
+                                                    class="btn btn-sm btn-primary icon-btn d-flex justify-content-center align-items-center"
+                                                    type="button" id="carlImport">
+                                                    <span class="disabled-icon spinner-border spinner-border-sm"
+                                                        role="status" aria-hidden="true"></span>
+                                                    <i class="icon mdi mdi-play-circle btn-icon-prepend"></i>
+                                                    <span class="text">Import</span>
+                                                    <span class="disabled-text">Loading...</span>
                                                 </button>
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="button" class="btn btn-block btn-md btn-success mr-2 icon-btn"
+                                    <button type="button"
+                                        class="btn btn-block btn-md btn-success mr-2 icon-btn d-flex justify-content-center align-items-center"
                                         id="processBTN">
-                                        <i class="mdi mdi-play-circle btn-icon-prepend"></i>
-                                        Process
+                                        <span class="disabled-icon spinner-border spinner-border-sm" role="status"
+                                            aria-hidden="true"></span>
+                                        <i class="icon mdi mdi-play-circle btn-icon-prepend"></i>
+                                        <span class="text">Process</span>
+                                        <span class="disabled-text">Loading...</span>
                                     </button>
                                 </div>
                             </div>
@@ -144,7 +152,8 @@
                                     <form class="forms-sample">
                                         <div class="form-group">
                                             <textarea class="form-control" id="output" rows="15"
-                                                placeholder="Your output will show up here automatically" readonly></textarea>
+                                                placeholder="Your output will show up here automatically"
+                                                readonly></textarea>
                                         </div>
                                     </form>
                                 </div>

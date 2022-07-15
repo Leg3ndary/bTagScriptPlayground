@@ -2,7 +2,7 @@
 // Out of respect, please don't go spamming my API :(
 
 const API_URL = 'https://btp.leg3ndary.repl.co/process/';
-
+const output = document.getElementById('output');
 
 // To start the api in case it's not running
 fetch(API_URL + 'ping');
@@ -150,7 +150,15 @@ function loadDebugTable(debug) {
 
 let isProcessing = false;
 async function process() {
-	if ( isProcessing ) return;
+	if (isProcessing) return;
+	if (!tagscript) {
+		output.value = '';
+
+		loadActionTable({});
+		loadDebugTable({});
+
+		return;
+	}
 
 	button.setAttribute('disabled', true);
 	isProcessing = true;
@@ -168,12 +176,17 @@ async function process() {
 		headers: headers,
 		origin: 'https://leg3ndary.github.io:443',
 	})
-		.then(res => res.json());
+		.then(res => res.json())
+		.catch(() => null);
 
-	document.getElementById('output').value = decodeTagScript(resp.body);
+	if (resp) {
+		output.value = decodeTagScript(resp.body);
 
-	loadActionTable(resp.actions);
-	loadDebugTable(resp.extras.debug);
+		loadActionTable(resp.actions);
+		loadDebugTable(resp.extras.debug);
+	} else {
+		output.value = 'Something went wrong';
+	}
 
 	button.removeAttribute('disabled');
 	isProcessing = false;
