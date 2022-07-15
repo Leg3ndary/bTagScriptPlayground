@@ -140,7 +140,7 @@ function loadDebugTable(debug) {
 
 		const nameRow = row.insertCell(0);
 		nameRow.innerHTML = escapeHtml(name);
-        
+
 		const valuesRow = row.insertCell(1);
 		valuesRow.innerHTML = escapeHtml(value);
 	}
@@ -149,7 +149,7 @@ function loadDebugTable(debug) {
 let isProcessing = false;
 async function process() {
 	if (isProcessing) return;
-	
+
 	let tagscript = editor.getValue();
 
 	if (!tagscript) {

@@ -10,10 +10,12 @@ module.exports = {
 			offsetTernaryExpressions: true,
 		}],
 		'comma-dangle': ['error', 'always-multiline'],
+		'comma-spacing': ['error', { before: false, after: true }],
 		'func-call-spacing': ['error', 'never'],
 		'keyword-spacing': ['error'],
 		'no-extra-parens': ['error', 'all'],
 		'no-extra-semi': ['error'],
+		'no-trailing-spaces': ['error'],
 		'object-curly-spacing': ['error', 'always'],
 		semi: ['error', 'always'],
 		'space-before-blocks': ['error', 'always'],
@@ -64,7 +66,7 @@ module.exports = {
 	env: {
 		node: true,
 		commonjs: true,
-		es2021: true,	
+		es2021: true,
 		browser: true,
 	},
 	globals: {

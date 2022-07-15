@@ -2,13 +2,13 @@ function isInt(str) {
 	if (typeof str !== 'string') {
 		return false;
 	}
-    
+
 	const num = Number(str);
-    
+
 	if (Number.isInteger(num) && num > 0) {
 		return true;
 	}
-    
+
 	return false;
 }
 
@@ -44,7 +44,7 @@ async function importTag() {
 	const importURL = carlImportURL.value;
 
 	const tagID = parseID(importURL);
-    
+
 	const resp = await fetch(CARL_API_URL + tagID).then(response => response.json());
 	editor.setValue(resp.content);
 
