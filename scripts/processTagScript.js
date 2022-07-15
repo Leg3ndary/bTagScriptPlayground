@@ -67,47 +67,51 @@ function loadActionTable(actions) {
 		let valueContent = 'Error';
 		let badgeContent = '<div class="badge badge-danger">Error</div>';
 
-		if (action == 'blacklist') {
-			if (actions.hasOwnProperty('requires')) {
+		if (action === 'blacklist') {
+			if (actions.requires) {
 				errors.push('You cannot have both a blacklist and a require block.');
 				actionContent = action;
-				valueContent = `Blacklisting the following IDS: ${value.items.join(', ')}, replying with "${value.response}" when the user/role/channel is blacklisted.`;
+				valueContent = `Blacklisting the following IDS: ${value.items.join(', ')}, 
+					replying with "${value.response}" when the user/role/channel is blacklisted.`;
 				badgeContent = '<div class="badge badge-danger">Error</div>';
 			} else {
-				valueContent = `Blacklisting the following IDS: ${value.items.join(', ')}, replying with "${value.response}" when the user/role/channel is blacklisted.`;
+				valueContent = `Blacklisting the following IDS: ${value.items.join(', ')}, 
+					replying with "${value.response}" when the user/role/channel is blacklisted.`;
 				badgeContent = '<div class="badge badge-success">Success</div>';
 			}
-		} else if (action == 'commands') {
+		} else if (action === 'commands') {
 			actionContent = 'command';
 			valueContent = `The following commands are used with their associated values: ${value.join(', ')}`;
 			badgeContent = '<div class="badge badge-success">Success</div>';
-		} else if (action == 'delete') {
+		} else if (action === 'delete') {
 			actionContent = 'delete';
 			valueContent = 'Deleting the message';
 			badgeContent = '<div class="badge badge-success">Success</div>';
-		} else if (action == 'embed') {
+		} else if (action === 'embed') {
 			actionContent = 'embed';
 			valueContent = `Embedding the following embed json: ${JSON.stringify(value)}`;
 			badgeContent = '<div class="badge badge-success">Success</div>';
-		} else if (action == 'overrides') {
+		} else if (action === 'overrides') {
 			actionContent = 'override';
 			valueContent = 'Overriding command permissions.';
 			badgeContent = '<div class="badge badge-success">Success</div>';
-		} else if (action == 'reactions') {
+		} else if (action === 'reactions') {
 			actionContent = 'reaction';
 			valueContent = `Adding the following reactions: ${value.join(', ')}`;
 			badgeContent = '<div class="badge badge-success">Success</div>';
-		} else if (action == 'requires') {
-			if (actions.hasOwnProperty('requires')) {
+		} else if (action === 'requires') {
+			if (actions.requires) {
 				actionContent = 'require';
-				valueContent = `Requiring the following IDS: ${value.items.join(', ')}, replying with "${value.response}" when the requirements aren't met.`;
+				valueContent = `Requiring the following IDS: ${value.items.join(', ')}, 
+					replying with "${value.response}" when the requirements aren't met.`;
 				badgeContent = '<div class="badge badge-danger">Error</div>';
 			} else {
 				actionContent = 'require';
-				valueContent = `Requiring the following IDS: ${value.items.join(', ')}, replying with "${value.response}" when the requirements aren't met.`;
+				valueContent = `Requiring the following IDS: ${value.items.join(', ')}, 
+					replying with "${value.response}" when the requirements aren't met.`;
 				badgeContent = '<div class="badge badge-success">Success</div>';
 			}
-		} else if (action == 'target') {
+		} else if (action === 'target') {
 			actionContent = 'redirect';
 			valueContent = `Redirecting the message to the following channel: ${value.channel}`;
 			badgeContent = '<div class="badge badge-success">Success</div>';
@@ -160,13 +164,15 @@ async function process() {
 
 	tagscript = cleanTagScript(tagscript);
 
-	if (tagscript.trim() == '') {
-		response = new ApiResponse({
+	if (tagscript.trim() === '') {
+		const response = new ApiResponse({
 			output: '',
 			actions: {},
-			debug: {},
+			extras: {
+				debug: {},
+			},
 		});
-		document.getElementById('output').value = decodeTagScript(response.body);
+		document.getElementById('output').value = ' ';
 
 		loadActionTable(response.actions);
 		loadDebugTable(response.extras.debug);
