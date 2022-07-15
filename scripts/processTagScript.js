@@ -159,23 +159,35 @@ async function process() {
     let tagscript = editor.getValue();
 
     tagscript = cleanTagScript(tagscript);
-
-    let request = encodeURIComponent(tagscript);
-
-    let response = fetch(API_URL + request, {
-        headers: headers,
-        origin: "https://leg3ndary.github.io:443"
-    })
-    .then(res => res.json());
-
-    response.then(function(resp) {
-        // console.log(resp);
-        response = new ApiResponse(resp);
+    
+    if ( tagscript.trim() == "" ) {
+        response = new ApiResponse({
+            output: "",
+            actions: {},
+            debug: {}
+        });
         document.getElementById("output").value = decodeTagScript(response.body);
 
         loadActionTable(response.actions);
         loadDebugTable(response.extras.debug);
-    });
+    } else {
+        let request = encodeURIComponent(tagscript);
+
+        let response = fetch(API_URL + request, {
+            headers: headers,
+            origin: "https://leg3ndary.github.io:443"
+        })
+        .then(res => res.json());
+    
+        response.then(function(resp) {
+            // console.log(resp);
+            response = new ApiResponse(resp);
+            document.getElementById("output").value = decodeTagScript(response.body);
+    
+            loadActionTable(response.actions);
+            loadDebugTable(response.extras.debug);
+        });
+    };
 
     button.removeAttribute("disabled");
     isProcessing = false;
