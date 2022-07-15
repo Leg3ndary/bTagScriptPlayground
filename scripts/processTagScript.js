@@ -1,5 +1,4 @@
 // Out of respect, please don't go spamming my API :(
-const editor = document.querySelector('#tagscript + .CodeMirror').CodeMirror;
 
 const API_URL = "https://btp.leg3ndary.repl.co/process/";
 

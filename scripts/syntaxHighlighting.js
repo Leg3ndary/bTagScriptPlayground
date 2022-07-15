@@ -77,7 +77,7 @@ CodeMirror.defineSimpleMode('tse', {
 	],
 });
 
-CodeMirror.fromTextArea(document.getElementById('tagscript'), {
+const editor = CodeMirror.fromTextArea(document.getElementById('tagscript'), {
 	mode: 'tse',
 	theme: 'tse',
 	lineWrapping: true,
