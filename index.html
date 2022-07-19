@@ -203,10 +203,37 @@
                                         <input type="text" class="form-control" id="tagscriptArgs" value="Hello world"
                                             placeholder="Put your arguments here!">
                                     </div>
+                                    <br>
+                                    <h4>Channel</h4>
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-primary text-white">{channel}</span>
-                                        <input type="text" class="form-control" id="tagscriptArgs" value="tagscript-chat"
+                                        <span class="input-group-text bg-primary text-white">Name</span>
+                                        <input type="text" class="form-control" id="channelName" value="tagscript-chat"
                                             placeholder="Channel name">
+                                    </div>
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-primary text-white">ID</span>
+                                        <input type="text" class="form-control" id="channelID" value="123456789012345"
+                                        placeholder="Channel ID">
+                                    </div>
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-primary text-white">NSFW</span>
+                                        <input type="text" class="form-control" id="channelNSFW" value="true"
+                                            placeholder="Channel NSFW">
+                                    </div>
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-primary text-white">Mention</span>
+                                        <input type="text" class="form-control" id="channelMention" value="&lt;#123456789012345&gt;"
+                                            placeholder="Channel Mention">
+                                    </div>
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-primary text-white">Topic</span>
+                                        <input type="text" class="form-control" id="channelTopic" value="Tagscript is pretty cool isn't it?"
+                                            placeholder="Channel Topic">
+                                    </div>
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-primary text-white">Slowmode</span>
+                                        <input type="text" class="form-control" id="channelSlowmode" value="5"
+                                            placeholder="Channel Mention">
                                     </div>
                                 </div>
                             </div>
@@ -215,6 +242,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">User</h4>
+                                    <p>The user who "invoked the tag"</p>
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-info text-white">Name</span>
                                         <input type="text" class="form-control" id="userName"
@@ -243,7 +271,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-info text-white">Mention</span>
                                         <input type="text" class="form-control" id="userMention"
-                                            value="<@123456789012345>" placeholder="Mention String">
+                                            value="&lt;@123456789012345&gt;" placeholder="Mention String">
                                     </div>
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-info text-white">Color</span>
@@ -262,6 +290,10 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Target</h4>
+                                    <div class="form-check form-check-info">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" checked id="useTarget">Use Target</label>
+                                    </div>
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-info text-white">Name</span>
                                         <input type="text" class="form-control" id="targetName"
@@ -290,7 +322,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-info text-white">Mention</span>
                                         <input type="text" class="form-control" id="targetMention"
-                                            value="<@123456789012345>" placeholder="Mention String">
+                                            value="&lt;@123456789012345&gt;" placeholder="Mention String">
                                     </div>
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-info text-white">Color</span>
