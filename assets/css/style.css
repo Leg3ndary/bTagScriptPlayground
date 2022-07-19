@@ -9019,7 +9019,7 @@ textarea.tt-hint {
     margin-left: -1.25rem; }
     .form-check-input[disabled] ~ .form-check-label,
     .form-check-input:disabled ~ .form-check-label {
-        color: #6c7293; }
+        color: #fff; }
 
 .form-check-label {
     margin-bottom: 0; }
@@ -16678,7 +16678,7 @@ code {
         padding-left: 0.625rem;
         font-size: 0.875rem;
         line-height: 1.5;
-        color: #6c7293; }
+        color: #fff; }
         .rtl .form-check .form-check-label {
             padding-left: 0;
             padding-right: 1.875rem; }

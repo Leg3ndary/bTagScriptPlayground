@@ -1,10 +1,8 @@
 // Out of respect, please don't go spamming my API :(
 
 const API_URL = 'https://btp.leg3ndary.repl.co/v2/process/';
-
-
-// To start the api in case it's not running
 fetch(API_URL + 'ping');
+
 
 class ApiResponse {
 	constructor(data) {
@@ -14,7 +12,6 @@ class ApiResponse {
 	}
 }
 
-const button = document.getElementById('processBTN');
 
 function cleanTagScript(tagscript) {
 	return tagscript
@@ -41,6 +38,70 @@ function escapeHtml(unsafe) {
 		.replace(/>/g, '&gt;')
 		.replace(/"/g, '&quot;')
 		.replace(/'/g, '&#039;');
+}
+
+function genSeedString() {
+	// these are left here in case I need to quickly edit them.
+	const ARGS = document.getElementById('tagscriptArgs').value;
+
+	const CHANNEL_NAME = document.getElementById('channelName').value;
+	const CHANNEL_ID = document.getElementById('channelID').value;
+	const CHANNEL_NSFW = document.getElementById('channelNSFW').value;
+	const CHANNEL_MENTION = document.getElementById('channelMention').value;
+	const CHANNEL_TOPIC = document.getElementById('channelTopic').value;
+	const CHANNEL_SLOWMODE = document.getElementById('channelSlowmode').value;
+
+	const USER_NAME = document.getElementById('userName').value;
+	const USER_USERNAME = document.getElementById('userUsername').value;
+	const USER_ID = document.getElementById('userID').value;
+	const USER_CREATEDAT = document.getElementById('userCreatedAt').value;
+	const USER_JOINEDAT = document.getElementById('userJoinedAt').value;
+	const USER_MENTION = document.getElementById('userMention').value;
+	const USER_COLOR = document.getElementById('userColor').value;
+	const USER_ROLEIDS = document.getElementById('userRoleIDs').value;
+
+	const USE_TARGET = document.getElementById('useTarget').value;
+
+	const TARGET_NAME = document.getElementById('targetName').value;
+	const TARGET_USERNAME = document.getElementById('targetUsername').value;
+	const TARGET_ID = document.getElementById('targetID').value;
+	const TARGET_CREATEDAT = document.getElementById('targetCreatedAt').value;
+	const TARGET_JOINEDAT = document.getElementById('targetJoinedAt').value;
+	const TARGET_MENTION = document.getElementById('targetMention').value;
+	const TARGET_COLOR = document.getElementById('targetColor').value;
+	const TARGET_ROLEIDS = document.getElementById('targetRoleIDs').value;
+
+	return {
+		user: {
+			name: USER_NAME,
+			username: USER_USERNAME,
+			id: USER_ID,
+			createdAt: USER_CREATEDAT,
+			joinedAt: USER_JOINEDAT,
+			mention: USER_MENTION,
+			color: USER_COLOR,
+			roleIDs: USER_ROLEIDS,
+		},
+		target: {
+			name: TARGET_NAME,
+			username: TARGET_USERNAME,
+			id: TARGET_ID,
+			createdAt: TARGET_CREATEDAT,
+			joinedAt: TARGET_JOINEDAT,
+			mention: TARGET_MENTION,
+			color: TARGET_COLOR,
+			roleIDs: TARGET_ROLEIDS,
+		},
+		args: ARGS,
+		channel: {
+			name: CHANNEL_NAME,
+			id: CHANNEL_ID,
+			nsfw: CHANNEL_NSFW,
+			mention: CHANNEL_MENTION,
+			topic: CHANNEL_TOPIC,
+			slowmode: CHANNEL_SLOWMODE,
+		},
+	};
 }
 
 function loadActionTable(actions) {
@@ -150,11 +211,17 @@ function loadDebugTable(debug) {
 	}
 }
 
+const BUTTON = document.getElementById('processBTN');
 let isProcessing = false;
+
 async function process() {
 	if (isProcessing) return;
 
-	button.setAttribute('disabled', true);
+	// Generating the seed str
+	const SEED = genSeedString();
+	let cleanedSeed = cleanTagScript(JSON.stringify(SEED));
+
+	BUTTON.setAttribute('disabled', true);
 	isProcessing = true;
 
 	const headers = new Headers();
@@ -195,11 +262,11 @@ async function process() {
 		});
 	}
 
-	button.removeAttribute('disabled');
+	BUTTON.removeAttribute('disabled');
 	isProcessing = false;
 }
 
-button.addEventListener('click', process);
+BUTTON.addEventListener('click', process);
 
 editor.addKeyMap({
 	'Cmd-Enter': process,
