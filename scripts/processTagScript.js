@@ -1,6 +1,6 @@
 // Out of respect, please don't go spamming my API :(
 
-const API_URL = 'https://btp.leg3ndary.repl.co/process/';
+const API_URL = 'https://btp.leg3ndary.repl.co/v2/process/';
 
 
 // To start the api in case it's not running
