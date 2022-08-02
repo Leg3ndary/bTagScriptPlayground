@@ -35,12 +35,18 @@ function parseID(str) {
 }
 
 async function importTag() {
+	let importURL = carlImportURL.value;
 
-	const importURL = carlImportURL.value;
+	let tagID = parseID(importURL);
 
-	const tagID = parseID(importURL);
+	let headers = new Headers();
+	headers.append('origin', 'btagscriptplayground');
 
-	const resp = await fetch(CARL_API_URL + tagID).then(response => response.json());
+	let resp = await fetch(CARL_API_URL + tagID, {
+		method: 'GET',
+		headers: headers,
+	})
+		.then(response => response.json());
 	editor.setValue(resp.content);
 
 	carlImportURL.innerText = '';
