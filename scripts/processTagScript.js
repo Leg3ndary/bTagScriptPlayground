@@ -70,18 +70,19 @@ function genSeedString() {
 	const TARGET_COLOR = document.getElementById('targetColor').value;
 	const TARGET_ROLEIDS = document.getElementById('targetRoleIDs').value;
 
-	let seed = {
-		user: {
-			name: USER_NAME,
-			username: USER_USERNAME,
-			id: USER_ID,
-			createdAt: USER_CREATEDAT,
-			joinedAt: USER_JOINEDAT,
-			mention: USER_MENTION,
-			color: USER_COLOR,
-			roleIDs: USER_ROLEIDS,
-		},
-		target: {
+	let user = {
+		name: USER_NAME,
+		username: USER_USERNAME,
+		id: USER_ID,
+		createdAt: USER_CREATEDAT,
+		joinedAt: USER_JOINEDAT,
+		mention: USER_MENTION,
+		color: USER_COLOR,
+		roleIDs: USER_ROLEIDS,
+	};
+
+	if (USE_TARGET === 'true') {
+		let target = {
 			name: TARGET_NAME,
 			username: TARGET_USERNAME,
 			id: TARGET_ID,
@@ -90,7 +91,14 @@ function genSeedString() {
 			mention: TARGET_MENTION,
 			color: TARGET_COLOR,
 			roleIDs: TARGET_ROLEIDS,
-		},
+		};
+	} else {
+		let target = user;
+	};
+
+	let seed = {
+		user: user,
+		target: target,
 		args: ARGS,
 		channel: {
 			name: CHANNEL_NAME,
@@ -101,7 +109,6 @@ function genSeedString() {
 			slowmode: CHANNEL_SLOWMODE,
 		},
 	}
-	console.log(seed);
 	return seed;
 }
 
@@ -220,16 +227,13 @@ let isProcessing = false;
 async function processTagScript() {
 	if (isProcessing) return;
 
-	// Generating the seed str
-	// const TAGSCRIPT = encodeTagScript(editor.getValue());
-	const TAGSCRIPT = editor.getValue();
-	const SEED = genSeedString();
-	// let cleanedSeed = encodeTagScript(JSON.stringify(SEED));
-	let cleanedSeed = encodeTagScript(JSON.stringify(SEED));
-	console.log(cleanedSeed);
-
 	BUTTON.setAttribute('disabled', true);
 	isProcessing = true;
+
+	// Generating the seed str
+	const TAGSCRIPT = editor.getValue();
+	const SEED = genSeedString();
+	let cleanedSeed = encodeTagScript(JSON.stringify(SEED));
 
 	let headers = new Headers();
 	headers.append('Content-Type', 'application/x-www-form-urlencoded');
