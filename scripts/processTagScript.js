@@ -1,7 +1,7 @@
 // Out of respect, please don't go spamming my API :(
 
 const API_URL = 'https://btp.leg3ndary.repl.co/v2/process/';
-fetch(API_URL + 'ping');
+fetch('https://btp.leg3ndary.repl.co/');
 
 
 class ApiResponse {
@@ -12,14 +12,13 @@ class ApiResponse {
 	}
 }
 
-
-function cleanTagScript(tagscript) {
-	return tagscript
-		.replace(/\\/g, 'Ꜳ')
-		.replace(/\//g, '₩')
-		.replace(/</g, 'ꜳ')
-		.replace(/>/g, 'ꜵ')
-		.replace(/\./g, 'Ꜷ');
+function escapeHtml(unsafe) {
+	return unsafe
+		.replace(/&/g, '&amp;')
+		.replace(/</g, '&lt;')
+		.replace(/>/g, '&gt;')
+		.replace(/"/g, '&quot;')
+		.replace(/'/g, '&#039;');
 }
 
 function decodeTagScript(tagscript) {
@@ -31,13 +30,13 @@ function decodeTagScript(tagscript) {
 		.replace(/Ꜷ/g, '.');
 }
 
-function escapeHtml(unsafe) {
-	return unsafe
-		.replace(/&/g, '&amp;')
-		.replace(/</g, '&lt;')
-		.replace(/>/g, '&gt;')
-		.replace(/"/g, '&quot;')
-		.replace(/'/g, '&#039;');
+function encodeTagScript(tagscript) {
+	return tagscript
+		.replace(/\\/g, 'Ꜳ')
+		.replace(/\//g, '₩')
+		.replace(/</g, 'ꜳ')
+		.replace(/>/g, 'ꜵ')
+		.replace(/\./g, 'Ꜷ');
 }
 
 function genSeedString() {
@@ -71,7 +70,7 @@ function genSeedString() {
 	const TARGET_COLOR = document.getElementById('targetColor').value;
 	const TARGET_ROLEIDS = document.getElementById('targetRoleIDs').value;
 
-	return {
+	let seed = {
 		user: {
 			name: USER_NAME,
 			username: USER_USERNAME,
@@ -101,7 +100,9 @@ function genSeedString() {
 			topic: CHANNEL_TOPIC,
 			slowmode: CHANNEL_SLOWMODE,
 		},
-	};
+	}
+	console.log(seed);
+	return seed;
 }
 
 function loadActionTable(actions) {
@@ -138,7 +139,7 @@ function loadActionTable(actions) {
 			} else {
 				valueContent = `Blacklisting the following IDS: ${value.items.join(', ')}, 
 					replying with "${value.response}" when the user/role/channel is blacklisted.`;
-				badgeContent = '<div class="badge badge-success">Success</div>';
+				badgeContent = '<div class="badge badge-success">Succewass</div>';
 			}
 		} else if (action === 'commands') {
 			actionContent = 'command';
@@ -201,38 +202,44 @@ function loadDebugTable(debug) {
 	}
 
 	for (const [name, value] of Object.entries(debug)) {
-		const row = table.insertRow();
+		if (name !== 'target' && name !== 'user' && name !== 'channel') {
+			const row = table.insertRow();
 
-		const nameRow = row.insertCell(0);
-		nameRow.innerHTML = escapeHtml(name);
+			const nameRow = row.insertCell(0);
+			nameRow.innerHTML = escapeHtml(name);
 
-		const valuesRow = row.insertCell(1);
-		valuesRow.innerHTML = escapeHtml(value);
+			const valuesRow = row.insertCell(1);
+			valuesRow.innerHTML = escapeHtml(value);
+		}
 	}
 }
 
-const BUTTON = document.getElementById('processBTN');
+const BUTTON = document.getElementById('processButton');
 let isProcessing = false;
 
-async function process() {
+async function processTagScript() {
 	if (isProcessing) return;
 
 	// Generating the seed str
+	// const TAGSCRIPT = encodeTagScript(editor.getValue());
+	const TAGSCRIPT = editor.getValue();
 	const SEED = genSeedString();
-	let cleanedSeed = cleanTagScript(JSON.stringify(SEED));
+	// let cleanedSeed = encodeTagScript(JSON.stringify(SEED));
+	let cleanedSeed = encodeTagScript(JSON.stringify(SEED));
+	console.log(cleanedSeed);
 
 	BUTTON.setAttribute('disabled', true);
 	isProcessing = true;
 
-	const headers = new Headers();
-	headers.append('Content-Type', 'application/json');
+	let headers = new Headers();
+	headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-	let tagscript = editor.getValue();
+	let body = new URLSearchParams();
+	body.set('tagscript', TAGSCRIPT);
+	body.append('seeds', cleanedSeed);
 
-	tagscript = cleanTagScript(tagscript);
-
-	if (tagscript.trim() === '') {
-		const response = new ApiResponse({
+	if (TAGSCRIPT.trim() === '') {
+		let response = new ApiResponse({
 			output: '',
 			actions: {},
 			extras: {
@@ -243,11 +250,11 @@ async function process() {
 
 		loadActionTable(response.actions);
 		loadDebugTable(response.extras.debug);
-	} else {
-		const request = encodeURIComponent(tagscript);
-
-		let response = fetch(API_URL + request, {
+	} else {;
+		let response = fetch(API_URL, {
+			method: 'POST',
 			headers: headers,
+			body: body,
 			origin: 'https://leg3ndary.github.io:443',
 		})
 			.then(res => res.json());
@@ -266,9 +273,9 @@ async function process() {
 	isProcessing = false;
 }
 
-BUTTON.addEventListener('click', process);
+BUTTON.addEventListener('click', processTagScript);
 
 editor.addKeyMap({
-	'Cmd-Enter': process,
-	'Ctrl-Enter': process,
+	'Cmd-Enter': processTagScript,
+	'Ctrl-Enter': processTagScript,
 });
