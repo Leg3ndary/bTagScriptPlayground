@@ -34,7 +34,12 @@ function parseID(str) {
 	return tagID;
 }
 
+let isLoading = false;
 async function importTag() {
+	if (isLoading) return;
+	carlImportBtn.setAttribute('disabled', true);
+	isLoading = true;
+
 	let importURL = carlImportURL.value;
 
 	let tagID = parseID(importURL);
@@ -48,6 +53,9 @@ async function importTag() {
 	})
 		.then(response => response.json());
 	editor.setValue(resp.content);
+
+	carlImportBtn.removeAttribute('disabled');
+	isLoading = false;
 
 	carlImportURL.innerText = '';
 }

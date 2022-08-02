@@ -4,8 +4,6 @@
 
 Ever wanted to test out tagscript before using it?
 
-You've come to the right place.
+You've come to the right place, test out your tagscript without having the mess of creating and constantly running tags.
 
-Test out tagscript without having the massive mess of creating and constantly running tags.
-
-Complete with everything you could ever need.
+Complete with everything you could ever need, try it out [here](https://leg3ndary.github.io/bTagScriptPlayground)
