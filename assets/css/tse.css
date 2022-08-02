@@ -53,7 +53,7 @@
 
 .CodeMirror,
 .CodeMirror-scroll {
-    min-height: calc(15 * 1.5em);
+    min-height: calc(6 * 1.5em);
     height: 100%;
     resize: vertical;
     overflow-y: hidden;

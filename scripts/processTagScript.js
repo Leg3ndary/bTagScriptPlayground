@@ -202,7 +202,7 @@ function loadDebugTable(debug) {
 	}
 
 	for (const [name, value] of Object.entries(debug)) {
-		if (name !== 'target' && name !== 'user' && name !== 'channel') {
+		if (['channel', 'user', 'target', 'args'].includes(name) !== true) {
 			const row = table.insertRow();
 
 			const nameRow = row.insertCell(0);

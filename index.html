@@ -111,7 +111,7 @@
                                     <p class="card-description">Put your tagscript here! Please be patient, this may
                                         take a while to process the first time around.</p>
                                     <div class="form-group">
-                                        <textarea class="form-control" id="tagscript" rows="15"
+                                        <textarea class="form-control" id="tagscript" rows="5"
                                             placeholder="Put some tagscript here!"></textarea>
                                     </div>
                                     <div class="form-group">
@@ -143,7 +143,7 @@
                                     <p class="card-description"> Your tagscript output will show here! </p>
                                     <form class="forms-sample">
                                         <div class="form-group">
-                                            <textarea class="form-control" id="output" rows="15"
+                                            <textarea class="form-control" id="output" rows="5"
                                                 placeholder="Your output will show up here automatically" readonly></textarea>
                                         </div>
                                     </form>
@@ -199,39 +199,39 @@
                                     <h4 class="card-title">Seeds</h4>
                                     <p>Seeds are predefined variables that are passed to the engine, set them here.</p>
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-primary text-white">{args}</span>
+                                        <span class="input-group-text bg-danger text-white">{args}</span>
                                         <input type="text" class="form-control" id="tagscriptArgs" value="Hello world"
                                             placeholder="Put your arguments here!">
                                     </div>
                                     <br>
                                     <h4>Channel</h4>
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-primary text-white">Name</span>
+                                        <span class="input-group-text bg-warning text-white">Name</span>
                                         <input type="text" class="form-control" id="channelName" value="tagscript-chat"
                                             placeholder="Channel name">
                                     </div>
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-primary text-white">ID</span>
+                                        <span class="input-group-text bg-warning text-white">ID</span>
                                         <input type="text" class="form-control" id="channelID" value="123456789012345"
                                         placeholder="Channel ID">
                                     </div>
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-primary text-white">NSFW</span>
+                                        <span class="input-group-text bg-warning text-white">NSFW</span>
                                         <input type="text" class="form-control" id="channelNSFW" value="true"
                                             placeholder="Channel NSFW">
                                     </div>
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-primary text-white">Mention</span>
+                                        <span class="input-group-text bg-warning text-white">Mention</span>
                                         <input type="text" class="form-control" id="channelMention" value="&lt;#123456789012345&gt;"
                                             placeholder="Channel Mention">
                                     </div>
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-primary text-white">Topic</span>
+                                        <span class="input-group-text bg-warning text-white">Topic</span>
                                         <input type="text" class="form-control" id="channelTopic" value="Tagscript is pretty cool isn't it?"
                                             placeholder="Channel Topic">
                                     </div>
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-primary text-white">Slowmode</span>
+                                        <span class="input-group-text bg-warning text-white">Slowmode</span>
                                         <input type="text" class="form-control" id="channelSlowmode" value="5"
                                             placeholder="Channel Mention">
                                     </div>
@@ -244,42 +244,42 @@
                                     <h4 class="card-title">User</h4>
                                     <p>The user who "invoked the tag"</p>
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-info text-white">Name</span>
+                                        <span class="input-group-text bg-primary text-white">Name</span>
                                         <input type="text" class="form-control" id="userName"
                                             value="TagScript is Cool" placeholder="Nickname">
                                     </div>
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-info text-white">Username</span>
+                                        <span class="input-group-text bg-primary text-white">Username</span>
                                         <input type="text" class="form-control" id="userUsername"
                                             value="TagScript#0001" placeholder="Username#Discriminator">
                                     </div>
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-info text-white">ID</span>
+                                        <span class="input-group-text bg-primary text-white">ID</span>
                                         <input type="text" class="form-control" id="userID"
                                             value="123456789012345" placeholder="ID">
                                     </div>
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-info text-white">Created At</span>
+                                        <span class="input-group-text bg-primary text-white">Created At</span>
                                         <input type="text" class="form-control" id="userCreatedAt"
                                             value="123456789012345" placeholder="Created At">
                                     </div>
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-info text-white">Joined At</span>
+                                        <span class="input-group-text bg-primary text-white">Joined At</span>
                                         <input type="text" class="form-control" id="userJoinedAt"
                                             value="123456789012345" placeholder="Created At">
                                     </div>
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-info text-white">Mention</span>
+                                        <span class="input-group-text bg-primary text-white">Mention</span>
                                         <input type="text" class="form-control" id="userMention"
                                             value="&lt;@123456789012345&gt;" placeholder="Mention String">
                                     </div>
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-info text-white">Color</span>
+                                        <span class="input-group-text bg-primary text-white">Color</span>
                                         <input type="text" class="form-control" id="userColor"
                                             value="#FFFFFF" placeholder="Color">
                                     </div>
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-info text-white">Role IDs</span>
+                                        <span class="input-group-text bg-primary text-white">Role IDs</span>
                                         <input type="text" class="form-control" id="userRoleIDs"
                                             value="123456789012345 123456789012346 123456789012347 123456789012348 123456789012349" placeholder="A list of roleids">
                                     </div>
@@ -292,7 +292,7 @@
                                     <h4 class="card-title">Target</h4>
                                     <div class="form-check form-check-info">
                                         <label class="form-check-label">
-                                            <input type="checkbox" class="form-check-input" checked id="useTarget">Use Target</label>
+                                            <input type="checkbox" class="form-check-input" checked id="useTarget">Use Target (When a user's mentioned)</label>
                                     </div>
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-info text-white">Name</span>
