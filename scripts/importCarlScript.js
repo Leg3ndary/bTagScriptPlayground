@@ -47,17 +47,24 @@ async function importTag() {
 	let headers = new Headers();
 	headers.append('origin', 'btagscriptplayground');
 
-	let resp = await fetch(CARL_API_URL + tagID, {
-		method: 'GET',
-		headers: headers,
-	})
-		.then(response => response.json());
-	editor.setValue(resp.content);
-
+	try {
+		let resp = await fetch(CARL_API_URL + tagID, {
+			method: 'GET',
+			headers: headers,
+		})
+			.then(response => response.json());
+		editor.setValue(resp.content);
+		carlImportURL.innerText = '';
+	} catch (err) {
+		let resp = await fetch(CARL_API_URL + '1479390', {
+			method: 'GET',
+			headers: headers,
+		})
+			.then(response => response.json());
+		editor.setValue(resp.content);
+	}
 	carlImportBtn.removeAttribute('disabled');
 	isLoading = false;
-
-	carlImportURL.innerText = '';
 }
 
 carlImportBtn.addEventListener('click', importTag);

@@ -70,7 +70,11 @@ function genSeedString() {
 	const TARGET_COLOR = document.getElementById('targetColor').value;
 	const TARGET_ROLEIDS = document.getElementById('targetRoleIDs').value;
 
-	let user = {
+
+	let target;
+	let user;
+
+	user = {
 		name: USER_NAME,
 		username: USER_USERNAME,
 		id: USER_ID,
@@ -82,7 +86,7 @@ function genSeedString() {
 	};
 
 	if (USE_TARGET === 'true') {
-		let target = {
+		target = {
 			name: TARGET_NAME,
 			username: TARGET_USERNAME,
 			id: TARGET_ID,
@@ -93,7 +97,7 @@ function genSeedString() {
 			roleIDs: TARGET_ROLEIDS,
 		};
 	} else {
-		let target = user;
+		target = user;
 	};
 
 	let seed = {
