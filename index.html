@@ -148,7 +148,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Output</h4>
-                                    <p class="card-description"> Your tagscript output will show here! </p>
+                                    <p class="card-description"> Your tagscript output will show here! Please note that this runs on a different engine from carl-bot, that means new blocks are added and you can see them <a href="https://btagscript.readthedocs.io/en/latest/APIReference/block.html" target="_blank">here</a>, an example of a common variable name is count.</p>
                                     <form class="forms-sample">
                                         <div class="form-group">
                                             <textarea class="form-control" id="output" rows="10"
@@ -225,7 +225,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Seeds</h4>
-                                    <p>Seeds are predefined variables that are passed to the engine, set them here.</p>
+                                    <p class="card-description">Seeds are predefined variables that are passed to the engine, set them here.</p>
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-danger text-white">{args}</span>
                                         <input type="text" class="form-control" id="tagscriptArgs" value="Hello world"
@@ -286,7 +286,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">User</h4>
-                                    <p>The user who "invoked the tag"</p>
+                                    <p class="card-description">The user who "invoked the tag", remember that this runs on a different engine and so {user} is technically not a valid block, consider using {user(name)}.</p>
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-primary text-white">Name</span>
                                         <input type="text" class="form-control" id="userName"
@@ -398,6 +398,48 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Control Panel</h4>
+                                    <p class="card-description">Here are some other things you may want to edit.</p>
+                                    <button type="button"
+                                    class="btn btn-block btn-lg btn-danger mr-2 icon-btn d-flex justify-content-center align-items-center"
+                                    id="randomizeAll">
+                                        <span class="disabled-icon spinner-border spinner-border-sm" role="status"
+                                            aria-hidden="true"></span>
+                                        <i class="icon mdi mdi-comment-question-outline btn-icon-prepend"></i>
+                                        <span class="text">Randomize All Seeds.</span>
+                                    </button>
+                                    <div class="form-group">
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input" id="useSession" checked> Session Storage (Recommended if you don't know what you're doing) </label>
+                                        </div>
+                                        <div class="form-check form-check-success">
+                                            <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input" id="useLocal"> Local Storage (Not recommended) </label>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown">
+                                        <button class="btn btn-block btn-lg btn-warning mr-2 icon-btn d-flex justify-content-center align-items-center dropdown-toggle" type="button" id="dropdownMenuOutlineButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span class="disabled-icon spinner-border spinner-border-sm" role="status"
+                                            aria-hidden="true"></span>
+                                            <i class="icon mdi mdi-close btn-icon-prepend"></i>
+                                            <span class="text">Clear</span>
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuOutlineButton1">
+                                            <p class="dropdown-item" id="clearSession">Session</p>
+                                            <p class="dropdown-item" id="clearLocal">Local</p>
+                                            <div class="dropdown-divider"></div>
+                                            <p class="dropdown-item" id="clearAll">All</p>
+                                        </div>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- content-wrapper ends -->
                 <!-- partial:partials/_footer.html -->
@@ -450,6 +492,7 @@
     <script src="scripts/importCarlScript.js"></script>
     <script src="scripts/manageDA.js"></script>
     <script src="scripts/randomizeSeeds.js"></script>
+    <script src="scripts/manageStorage.js"></script>
     <!-- End custom js for this page -->
 </body>
 
