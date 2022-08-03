@@ -151,7 +151,7 @@
                                     <p class="card-description"> Your tagscript output will show here! </p>
                                     <form class="forms-sample">
                                         <div class="form-group">
-                                            <textarea class="form-control" id="output" rows="5"
+                                            <textarea class="form-control" id="output" rows="10"
                                                 placeholder="Your output will show up here automatically"
                                                 readonly></textarea>
                                         </div>
@@ -165,6 +165,8 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Actions</h4>
+                                    <p class="card-description">Any and all actions that your tagscript may do
+                                        will show up here!</p>
                                     <div class="table-responsive">
                                         <table class="table">
                                             <thead>
@@ -179,6 +181,14 @@
                                     <br>
                                     <p class="text-danger" id="errors">Errors: None</p>
                                     <p class="text-warning" id="warnings">Warnings: None</p>
+                                    <button type="button"
+                                        class="btn btn-block btn-md btn-danger mr-2 icon-btn d-flex justify-content-center align-items-center"
+                                        id="clearActions">
+                                        <span class="disabled-icon spinner-border spinner-border-sm" role="status"
+                                            aria-hidden="true"></span>
+                                        <i class="icon mdi mdi-close btn-icon-prepend"></i>
+                                        <span class="text">Clear</span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -186,6 +196,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Debug</h4>
+                                    <p class="card-description">All variables used in your tag will appear here, along with their final value.</p>
                                     <div class="table-responsive">
                                         <table class="table">
                                             <thead>
@@ -197,6 +208,14 @@
                                             <tbody id="debugTable"></tbody>
                                         </table>
                                     </div>
+                                    <button type="button"
+                                        class="btn btn-block btn-md btn-danger mr-2 icon-btn d-flex justify-content-center align-items-center"
+                                        id="clearDebug">
+                                        <span class="disabled-icon spinner-border spinner-border-sm" role="status"
+                                            aria-hidden="true"></span>
+                                        <i class="icon mdi mdi-close btn-icon-prepend"></i>
+                                        <span class="text">Clear</span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -397,6 +416,8 @@
     <script src="assets/js/dashboard.js"></script>
     <script src="scripts/processTagScript.js"></script>
     <script src="scripts/importCarlScript.js"></script>
+    <script src="scripts/manageDA.js"></script>
+    <script src="scripts/randomizeSeeds.js"></script>
     <!-- End custom js for this page -->
 </body>
 
