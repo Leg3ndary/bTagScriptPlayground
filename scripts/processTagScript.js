@@ -59,7 +59,7 @@ function genSeedString() {
 	const USER_COLOR = document.getElementById('userColor').value;
 	const USER_ROLEIDS = document.getElementById('userRoleIDs').value;
 
-	const USE_TARGET = document.getElementById('useTarget').value;
+	const USE_TARGET = document.getElementById('useTarget').checked;
 
 	const TARGET_NAME = document.getElementById('targetName').value;
 	const TARGET_USERNAME = document.getElementById('targetUsername').value;
@@ -85,7 +85,7 @@ function genSeedString() {
 		roleIDs: USER_ROLEIDS,
 	};
 
-	if (USE_TARGET === 'true') {
+	if (USE_TARGET === true) {
 		target = {
 			name: TARGET_NAME,
 			username: TARGET_USERNAME,
