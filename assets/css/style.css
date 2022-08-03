@@ -13298,7 +13298,7 @@ input[type="button"].btn-block {
 
 .dropdown-item:hover,
 .dropdown-item:focus {
-    color: #16181b;
+    /* color: #16181b; */
     text-decoration: none;
     background-color: #13151b;
 }
