@@ -35,8 +35,14 @@ function parseID(str) {
 }
 
 let isLoading = false;
+
 async function importTag() {
 	if (isLoading) return;
+	if (useLocal.checked) {
+		window.localStorage.setItem('tagscript', editor.getValue());
+	} else if (useSession.checked) {
+		window.sessionStorage.setItem('tagscript', editor.getValue());
+	}
 	carlImportBtn.setAttribute('disabled', true);
 	isLoading = true;
 

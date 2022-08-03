@@ -10,6 +10,9 @@ randomizeUser.addEventListener('click', randomUser);
 let randomizeTarget = document.getElementById('randomizeTarget');
 randomizeTarget.addEventListener('click', randomTarget);
 
+let randomizeAll = document.getElementById('randomizeAll');
+randomizeAll.addEventListener('click', randomAll);
+
 function randomID(){
     return Math.floor(Math.random() * (9999999999999999999 - 100000000000000000 + 1) + 100000000000000000);
 };
@@ -84,9 +87,13 @@ function randomTarget() {
         targetRoleIDS.push(randomID());
     }
     document.getElementById('targetRoleIDs').value = targetRoleIDS.join(' ');
-}
+};
 
-randomArgs();
-randomChannel();
-randomUser();
-randomTarget();
+function randomAll() {
+    randomArgs();
+    randomChannel();
+    randomUser();
+    randomTarget();
+};
+
+randomAll();
