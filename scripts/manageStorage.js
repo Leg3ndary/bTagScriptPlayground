@@ -7,9 +7,17 @@ if (window.localStorage.getItem('useLocal') === true) {
 };
 
 if (useLocal.checked === true) {
-    editor.setValue(window.localStorage.getItem('tagscript'));
+    if (editor.setValue(window.localStorage.getItem('tagscript')) === null) {
+        editor.setValue('');
+    } else {
+        editor.setValue(window.localStorage.getItem('tagscript'));
+    }
 } else if (useSession.checked === true) {
-    editor.setValue(window.sessionStorage.getItem('tagscript'));
+    if (editor.setValue(window.sessionStorage.getItem('tagscript')) === null) {
+        editor.setValue('');
+    } else {
+        editor.setValue(window.sessionStorage.getItem('tagscript'));
+    }
 };
 
 useLocal.addEventListener('change', (event) => {
