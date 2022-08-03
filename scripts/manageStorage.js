@@ -7,13 +7,13 @@ if (window.localStorage.getItem('useLocal') === true) {
 };
 
 if (useLocal.checked === true) {
-    if (editor.setValue(window.localStorage.getItem('tagscript')) === null) {
+    if (window.localStorage.getItem('tagscript') === null) {
         editor.setValue('');
     } else {
         editor.setValue(window.localStorage.getItem('tagscript'));
     }
 } else if (useSession.checked === true) {
-    if (editor.setValue(window.sessionStorage.getItem('tagscript')) === null) {
+    if (window.sessionStorage.getItem('tagscript') === null) {
         editor.setValue('');
     } else {
         editor.setValue(window.sessionStorage.getItem('tagscript'));
