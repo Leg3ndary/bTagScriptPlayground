@@ -274,6 +274,9 @@ async function processTagScript() {
 
 			loadActionTable(response.actions);
 			loadDebugTable(response.extras.debug);
+
+			const counter = document.getElementById('counter');
+			counter.innerHTML = `Playground - Processed ${response.uses} different Tags`;
 		});
 	}
 
