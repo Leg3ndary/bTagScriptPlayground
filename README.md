@@ -1,6 +1,6 @@
 # bTagScript Playground
 
-![bTagScript Playground](https://imgur.com/Mth9WKC)
+![bTagScript Playground](https://i.imgur.com/Mth9WKC.png)
 
 Ever wanted to test out TagScript before using it?
 
