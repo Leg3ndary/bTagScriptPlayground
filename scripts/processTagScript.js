@@ -1,7 +1,6 @@
 // Out of respect, please don't go spamming my API :(
 
 const API_URL = "https://leg3ndary.pythonanywhere.com/v2/process/";
-// const API_URL = "127.0.0.1:8080";
 
 class ApiResponse {
     constructor(data) {
@@ -283,7 +282,7 @@ async function processTagScript() {
         }).then((res) => res.json());
 
         response.then(function (resp) {
-            // console.log(resp);
+            console.log(resp);
             response = new ApiResponse(resp);
             document.getElementById("output").value = decodeTagScript(
                 response.body
